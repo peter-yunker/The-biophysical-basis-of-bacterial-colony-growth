@@ -21,9 +21,9 @@ from least_square_circle import*
 
 
 '''This function subtracts plane from the given image txt  file with latRes input from interferometry
-
 findCircle= This finds the edge of bioiflm by finding gradient of the image and threholdinog that gradient
-Note here that a lot of this functions involve finding the center of biofilm, going aorund the circle and then 
+Note here that a lot of these functions involve finding the center of biofilm, going aorund the circle and then finding
+the regions outise the colony. We then find the agar portion , subtract a best fit polynoimial and return the final image
 
 '''
     
