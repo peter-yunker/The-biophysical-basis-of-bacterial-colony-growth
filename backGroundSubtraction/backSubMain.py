@@ -3,7 +3,7 @@
 # Description: This script is used to process raw Interfermetry Image and subtract a backgorund for time lapse images.
 # Author: Aawaz R Pokhrel
 # Date: November 9, 2023
-# Citation: Pokhrel. et al. "The Biophysical basis for of bacterial colony growth" (2022)
+# Citation: Pokhrel. et al. "The Biophysical basis for of bacterial colony growth" (2023)
 # -------------------------------------------------------------------------------
 -------------------------------------------------------------------------
 

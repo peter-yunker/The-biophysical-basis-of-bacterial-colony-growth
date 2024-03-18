@@ -7,7 +7,7 @@ import math
 # Description: This script is used to fit a least sqaure circle for given x and y coardinantes.
 # Author: Aawaz R Pokhrel
 # Date: November 9, 2023
-# Citation: Pokhrel. et al. "The Biophysical basis for of bacterial colony growth" (2022)
+# Citation: Pokhrel. et al. "The Biophysical basis for of bacterial colony growth" (2023)
 # -------------------------------------------------------------------------------
 
 def calc_R(x,y, xc, yc):
