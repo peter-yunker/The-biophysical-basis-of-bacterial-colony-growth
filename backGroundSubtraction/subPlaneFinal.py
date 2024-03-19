@@ -20,6 +20,7 @@ from skimage import filters
 from least_square_circle import*
 
 
+
 '''This function subtracts plane from the given image txt  file with latRes input from interferometry
 findCircle= This finds the edge of bioiflm by finding gradient of the image and threholdinog that gradient
 Note here that a lot of these functions involve finding the center of biofilm, going aorund the circle and then finding
@@ -132,31 +133,25 @@ def subPlane(x,y,z,image,latRes):
                 tmp_b.append(z[i])
             b = np.matrix(tmp_b).T
             A = np.matrix(tmp_A)
-           #print (A)
-           # asd
+          
             fit, residual, rnk, s = lstsq(A, b)
             return fit[0], fit[1], fit[2]
 
 
 
-        #ax.scatter(x, y, z, color="r",s=0.02)
         a,b,c=returnBestPlane(x,y,z)
         X=np.arange(0,image.shape[0])*latRes
         Y=np.arange(0,image.shape[1])*latRes
         xW,yW = np.meshgrid(X, Y)
         xF=xW.flatten()#[booi]
         yF=yW.flatten()#[booi]
-       # print (dataM.shape)
+      
         zF=image.T.flatten()#[booi]\
-      #  print (np.nanmax(zF))
-      #  print(zF)
+      
         zFit=a*xF+b*yF+c
-      #  print(zFit)
-     #   print (zFit.shape)
-        #asd
+     
         finalZ=zF-zFit              ##Subtarct best fit plane
-      #  print (finalZ)
-        #sd
+     
        
         finalZ=finalZ.reshape((image.shape[1],image.shape[0]))
         finalZ=finalZ.T
@@ -169,9 +164,7 @@ This function find points around that lies near the threhold provided
 '''
 
 def findRegionOutside(image,cx,cy,radii):
-   # plt.imshow(zImage)
-   # plt.show()
-    #asd
+   
 
 
     def interpolateInner(xT,data):
@@ -207,22 +200,13 @@ def findRegionOutside(image,cx,cy,radii):
             #asd
          #   print (profile)
             indi=indL[0][0]
-            #plt.axvline(x=indi)
-           # profile[indi:]=0.0
-           # plt.plot(xI[indi:],profile[indi:])
-           # print(profile)
-           # plt.plot(xI,profile)
-            #plt.show()
-           # ddd
-       #     print (profile)
-          #  print (indL)
+         
             return indi,profile
         return np.nan,np.nan
     sh=image.shape
  #   plt.imshow(image)
     xc,yc=cx,cy
-  #  print (xc,yc)
-  #  plt.scatter(xc,yc)
+ 
     num=1000
     start=0
     end=360
@@ -259,10 +243,7 @@ def findRegionOutside(image,cx,cy,radii):
         booi5=np.logical_and(booi4, booi3)   
         pointsX=pointsX[booi5]
         pointsY=pointsY[booi5]
-       # plt.plot(pointsX,pointsY)
-        
-        #print (pointsX)
-        ##asd
+      
         x.append(pointsY)
         y.append(pointsX)
         lCenP=image[pointsY,pointsX]
@@ -270,8 +251,7 @@ def findRegionOutside(image,cx,cy,radii):
       
        
     
-    #plt.show()
-    #asd
+   
     x=np.array(x)
     x=np.concatenate( x, axis=0 )
     y=np.concatenate( y, axis=0 )
@@ -305,9 +285,7 @@ def findCircleCoardRow(image,thres):
        #plt.plot(xI,profile)
         if(len(profile)==0):
             return np.nan
-       # profile=interpolateInner(xI,profile)
-       # print (profile)
-        #asd
+      
         indL=np.where(np.absolute((profile-thres))<5)   ##Threshold 5 used for everything
         if(len(indL[0])>0):
        
@@ -342,9 +320,7 @@ def interpolateProfile(data):
     try:
       s=s.interpolate(method='spline', order=1,limit_direction='both')
       data=scipy.signal.savgol_filter(s, 41, 1) ##you can change the width of the  inteprolation profile
-      #plt.plot(s)
-     # plt.show()
-     # asd
+     
     except ValueError as e:
       print (data)
       
@@ -368,16 +344,7 @@ def interpolateCircular(image,center,threshold,R):
     
     rn,cn=center[0],center[1]
     
-#    xCoar,yCoar=findPoints(image,center,threshold)  ##find points of just the biofilm
-    #plt.imshow(image)
-    #plt.scatter(xCoar,yCoar)
-    
-  #  plt.show()
-  #  asd
-#    xc,yc,R,residu=leastsq_circle(xCoar,yCoar)  ##find a best fit circle that fits there to calcualte the radius 
- #   plt.scatter(rn,cn)
-   # plt.show()
-    #asd
+
     start=0
     end=360
     num=50000
@@ -406,13 +373,7 @@ def interpolateCircular(image,center,threshold,R):
         #plt.plot(pointsX,pointsY) #C
         lCenP=lines[pointsY,pointsX]
         newLines[pointsY,pointsX]=interpolateProfile(lCenP)  #This is where the real interpolation for each profile takes place
-       # plt.plot(lCenP)
-      #  plt.show()
-       # profiles.append(lCenP)
-       # print(pointsX,pointsY)
-       # plt.plot(pointsX,pointsY)
-    #plt.show()
-        #sad
+      
         
     return newLines
 

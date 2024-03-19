@@ -15,4 +15,4 @@ Background Subtraction: This folder contains codes for subtracting the backgroun
 
 interpolateImages: This folder contains code to interpolate images with nan. Interpolation is necessary to calculate the volume of the colony. Splines interpolation is implemented. Since the data are radially symmetrical, we start from the center of the colony and draw lines pointing radially outward to interpolate
 
-simulationCode: This folder contains code generate simulated height profiles
+simulationCode: This folder contains code  to generate simulated height profiles.
