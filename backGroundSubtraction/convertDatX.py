@@ -13,7 +13,7 @@ import os
 import math
 import h5py
 from skimage.measure import block_reduce
-from readFunc import getZ
+
 
 
 
