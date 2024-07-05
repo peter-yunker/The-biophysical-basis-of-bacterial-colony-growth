@@ -1,6 +1,6 @@
 # ----------------------------------------------------------------------------
 # Title: 
-# Description: This script is used to geenrate height profiles by solving a swecond order differtial equation.
+# Description: This script is used to geenrate height profiles by solving a second order differtial equation.
 # Author: Aawaz R Pokhrel
 # Date: November 9, 2023
 # Citation: Pokhrel. et al. "The Biophysical basis for of bacterial colony growth" (2023)
